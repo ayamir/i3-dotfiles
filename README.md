@@ -1,7 +1,7 @@
 # i3-dotfiles
 本仓库存放我的dotfiles
 
-
+![shot1](screenshot/shot1.png)
 
 如果你已经有自己的相应文件，建议先对自己之前的文件做一下备份
 
