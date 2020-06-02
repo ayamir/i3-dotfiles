@@ -44,7 +44,7 @@ cp -r alacritty/ ~/.config/
 ```
 i3lock with blur：
 ```bash
-sudo cp lock/lock.sh /usr/bin/lock && sudo cp lock/lock.png /usr/bin/
+sudo cp lock/lock.sh /bin/lock && sudo cp lock/lock.png /bin/
 ```
 i3/config:
 
