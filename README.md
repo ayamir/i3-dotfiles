@@ -1,9 +1,12 @@
 # i3-dotfiles
 本仓库存放我的dotfiles
+
 软件依赖：
 dunst rofi polybar py3status xautolock i3lock ffmpeg compton-tryone-git alacritty feh
+
 使用方法：
 只需要把文件夹移动到相应的目录下
+
 Pictures：
 存放的是我的壁纸文件，没必要全部下载或者拷贝，各取所需
 假设你的图片文件夹是~/Pictures/
