@@ -38,7 +38,7 @@ compton-tryone-git:
 ```bash
 cp compton.conf ~/.config/
 ```
-alacritty；
+alacritty:
 ```bash
 cp -r alacritty/ ~/.config/
 ```
@@ -46,7 +46,7 @@ i3lock with blur：
 ```bash
 sudo cp lock/lock.sh /usr/bin/lock && sudo cp lock/lock.png /usr/bin/
 ```
-i3/config
+i3/config:
 
 关于i3/config建议结合讲解使用，防止出现问题
 
