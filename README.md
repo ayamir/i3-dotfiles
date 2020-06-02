@@ -2,6 +2,9 @@
 本仓库存放我的dotfiles
 
 
+
+如果你已经有自己的相应文件，建议先对自己之前的文件做一下备份
+
 软件依赖：
 dunst rofi polybar py3status xautolock i3lock ffmpeg compton-tryone-git alacritty feh
 
@@ -46,6 +49,10 @@ sudo cp lock/lock.sh /usr/bin/lock && sudo cp lock/lock.png /usr/bin/
 i3/config
 
 关于i3/config建议结合讲解使用，防止出现问题
+
+```bash
+cp -r i3/ ~/.config/
+```
 
 13行：将alt键重用为$mod1
 
