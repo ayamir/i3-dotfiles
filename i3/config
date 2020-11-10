@@ -14,7 +14,7 @@ set $mod1 Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango: Inconsolata 14
+font pango: Input Nerd Font 9
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -22,6 +22,18 @@ font pango: Inconsolata 14
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
+
+title_align center
+show_marks yes
+
+for_window [class=".*"] title_format "%title"
+
+# Theme colors
+client.focused     #ECEFF4      #5E81AC     #ECEFF4    #ECEFF4       #ECECEC
+client.focused_inactive   #ECECEC     #ECECEC    #171717     #ECECEC       #ECECEC
+client.unfocused   #ECECEC      #ECEFF4    #171717     #ECECEC       #ECECEC
+client.urgent           #BF616A            #BF616A        #ffffff        #268BD2
+client.placeholder      #ECEFF4            #909090        #FFFFFF        #268BD2
 
 new_window pixel 0
 new_float pixel 0
@@ -31,25 +43,21 @@ gaps outer 0
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xautolock -time 5 -locker 'lock' &
+exec --no-startup-id xautolock -time 5 -locker '/usr/bin/betterlockscreen -l' -corners ---- -cornersize 30 &
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id setxkbmap -option caps:swapescape
-exec --no-startup-id nm-applet
-exec --no-startup-id pamac-tray
-exec --no-startup-id fcitx
+exec --no-startup-id setxkbmap -option "ctrl:swapcaps"
+exec --no-startup-id fcitx5
+exec --no-startup-id qv2ray
 exec --no-startup-id xdman
 exec --no-startup-id nutstore
-exec --no-startup-id clipit
-exec --no-startup-id caffeine
-exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
+exec --no-startup-id copyq
+exec --no-startup-id nitrogen --restore
 exec --no-startup-id redshift-gtk
-exec --no-startup-id thunderbird
 exec --no-startup-id words-picker
-exec --no-startup-id compton -b --backend glx --paint-on-overlay --mark-ovredir-focused
-exec --no-startup-id nohup sh /home/mir/Pictures/Background/auto-change.sh > /dev/null 2>&1 &
-exec --no-startup-id /home/mir/.config/polybar/launch.sh
+exec --no-startup-id picom -b
+exec --no-startup-id /home/mir/.config/i3/bin/i3bar
 
 
 # Use pactl to adjust volume in PulseAudio.
@@ -66,13 +74,16 @@ floating_modifier $mod
 assign [class="libreoffice"] $ws1
 
 assign [class="Code"] $ws2
+assign [class="jetbrains-toolbox"] $ws2
+assign [class="jetbrains-goland"] $ws2
 assign [class="jetbrains-idea"] $ws2
 assign [class="jetbrains-pycharm"] $ws2
 assign [class="jetbrains-clion"] $ws2
 assign [class="jetbrains-datagrip"] $ws2
 assign [class="jetbrains-webstorm"] $ws2
 
-assign [class="Chromium"] $ws3
+assign [class="FirefoxNightly"] $ws3
+assign [class="Nightly"] $ws3
 
 assign [class="netease-cloud-music"] $ws4
 
@@ -81,47 +92,45 @@ assign [class="Steam"] $ws5
 assign [class="VirtualBox Machine"] $ws6
 
 assign [class="Thunderbird"] $ws8
-
-assign [class="Gnome-pomodoro"] $ws9
-
-assign [class="Qq"] $ws10
-assign [class="TelegramDesktop"] $ws10
+assign [class="Qq"] $ws8
+assign [class="TelegramDesktop"] $ws8
 
 # for_window floating settings
+for_window [class="xdman-Main"] floating enable
 for_window [class="java-lang-Thread"] floating enable
 for_window [class="deepin-system-monitor"] floating enable
 for_window [class="VirtualBox Manager"] floating enable
 for_window [class="Qq"] floating enable
-for_window [class="Viewnior"] floating enable
 for_window [class="Lxappearance"] floating enable
-for_window [class="Galculator"] floating enable
+for_window [class="Qalculate-gtk"] floating enable
 for_window [class="Nitrogen"] floating enable
 for_window [class="Steam"] floating enable
-for_window [class="Listen1"] floating enable
 for_window [class="words-picker"] floating enable
 
 # start a terminal
 bindsym $mod+Return exec alacritty
+bindsym $mod+shift+Return exec kitty
 
 # start specific application
-bindsym $mod+c exec chromium
-bindsym $mod+shift+a exec flameshot gui
-bindsym $mod+n exec thunar
-bindsym $mod+m exec netease-cloud-music
-bindsym $mod+shift+s exec steam
-bindsym $mod+shift+v exec VBoxManage startvm "WinDev2004Eval" --type gui
-bindsym $mod1+ctrl+Delete exec lock
+bindsym $mod+c exec firefox-nightly
+bindsym $mod+shift+s exec flameshot gui
+bindsym $mod+shift+e exec emacs
+bindsym $mod+z exec zathura
+bindsym $mod+shift+n exec thunar
+bindsym $mod+shift+m exec netease-cloud-music
+bindsym $mod+shift+v exec VBoxManage startvm "WinDev2008Eval" --type gui
+bindsym $mod1+ctrl+Delete exec betterlockscreen -l
 
 # IDEs start bindsym
 set $ides "[c]ode [i]dea [p]ycharm c[l]ion [w]ebstorm [d]atagrip"
 bindsym $mod+i mode $ides
 mode $ides {
   bindsym c exec --no-startup-id "i3-msg 'workspace 2; exec code; mode \\"default\\"'"
-  bindsym i exec --no-startup-id "i3-msg 'workspace 2; exec /home/mir/JetBrains/idea/bin/idea.sh; mode \\"default\\"'"
-  bindsym p exec --no-startup-id "i3-msg 'workspace 2; exec /home/mir/JetBrains/pycharm-2020.1.1/bin/pycharm.sh; mode \\"default\\"'"
-  bindsym l exec --no-startup-id "i3-msg 'workspace 2; exec /home/mir/JetBrains/clion-2020.1.1/bin/clion.sh; mode \\"default\\"'"
-  bindsym w exec --no-startup-id "i3-msg 'workspace 2; exec /home/mir/JetBrains/WebStorm-201.7223.93/bin/webstorm.sh; mode \\"default\\"'"
-  bindsym d exec --no-startup-id "i3-msg 'workspace 2; exec /home/mir/JetBrains/DataGrip-2020.1.3/bin/datagrip.sh; mode \\"default\\"'"
+  bindsym i exec --no-startup-id "i3-msg 'workspace 2; exec /home/mir/.local/bin/idea; mode \\"default\\"'"
+  bindsym p exec --no-startup-id "i3-msg 'workspace 2; exec /home/mir/.local/bin/pycharm; mode \\"default\\"'"
+  bindsym l exec --no-startup-id "i3-msg 'workspace 2; exec /home/mir/.local/bin/clion; mode \\"default\\"'"
+  bindsym w exec --no-startup-id "i3-msg 'workspace 2; exec /home/mir/.local/bin/webstorm; mode \\"default\\"'"
+  bindsym d exec --no-startup-id "i3-msg 'workspace 2; exec /home/mir/.local/bin/datagrip; mode \\"default\\"'"
 
   bindsym Return mode "default"
   bindsym Escape mode "default"
@@ -157,7 +166,8 @@ mode "$mode_redshift" {
 
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
+bindsym $mod+x close
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec rofi -show drun
@@ -168,10 +178,10 @@ bindsym $mod+Tab exec rofi -show run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -180,10 +190,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -192,8 +202,8 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
-bindsym $mod+q split toggle
+bindsym $mod+semicolon split h
+bindsym $mod+shift+q split toggle
 # split in vertical orientation
 bindsym $mod+v split v
 
@@ -219,16 +229,14 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:Learn"
-set $ws2 "2:Code"
-set $ws3 "3:Web"
-set $ws4 "4:Relax"
-set $ws5 "5:Game"
-set $ws6 "6:Windows"
-set $ws7 "7:Downloads"
-set $ws8 "8:Email"
-set $ws9 "9:Pomodoro"
-set $ws10 "10:Other"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -239,8 +247,6 @@ bindsym $mod+5 workspace number $ws5
 bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -251,15 +257,13 @@ bindsym $mod+Shift+5 move container to workspace number $ws5
 bindsym $mod+Shift+6 move container to workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+Escape exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -287,20 +291,3 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-  status_command py3status -c ~/.config/py3status/config
-  position bottom
-
-  colors {
-    separator #444444
-    background #1D1F28
-    statusline #B1B1B1
-    focused_workspace #CECECE #2494FC #000000
-    active_workspace #333333 #2494FC #888888
-    inactive_workspace #CECECE #333333 #f1f1f1
-    urgent_workspace #eb709b #FF334C #ffffff
-   }
-}

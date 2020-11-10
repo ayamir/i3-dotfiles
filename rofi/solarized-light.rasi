@@ -1,0 +1,33 @@
+! Base16 Solarized Light
+! Author: Ethan Schoonover (modified by aramisgithub)
+
+! base00: #fdf6e3
+! base01: #eee8d5
+! base02: #93a1a1
+! base03: #839496
+! base04: #657b83
+! base05: #586e75
+! base06: #073642
+! base07: #002b36
+! base08: #dc322f
+! base09: #cb4b16
+! base0A: #b58900
+! base0B: #859900
+! base0C: #2aa198
+! base0D: #268bd2
+! base0E: #6c71c4
+! base0F: #d33682
+
+! Enable the extended coloring options
+rofi.color-enabled: true
+
+! Property Name     BG       Border   Separator
+rofi.color-window:  #eee8d5, #eee8d5, #fdf6e3
+
+! Property Name     BG       FG       BG-alt   Head-BG  Head-FG
+rofi.color-normal:  #eee8d5, #586e75, #eee8d5, #eee8d5, #002b36
+rofi.color-active:  #eee8d5, #268bd2, #eee8d5, #eee8d5, #268bd2
+rofi.color-urgent:  #eee8d5, #dc322f, #eee8d5, #eee8d5, #dc322f
+
+! Set the desired separator style
+rofi.separator-style: solid
