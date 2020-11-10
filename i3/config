@@ -49,6 +49,8 @@ exec --no-startup-id xautolock -time 5 -locker '/usr/bin/betterlockscreen -l' -c
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id setxkbmap -option "ctrl:swapcaps"
 exec --no-startup-id fcitx5
+exec --no-startup-id dunst
+exec --no-startup-id xfce4-power-manager
 exec --no-startup-id qv2ray
 exec --no-startup-id xdman
 exec --no-startup-id nutstore
@@ -125,6 +127,14 @@ bindsym $mod+shift+n exec thunar
 bindsym $mod+shift+m exec netease-cloud-music
 bindsym $mod+shift+v exec VBoxManage startvm "WinDev2008Eval" --type gui
 bindsym $mod1+ctrl+Delete exec betterlockscreen -l
+
+# Screenshot config
+# Take a full screenshot store in file
+bindsym Print exec "scrot 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'"
+# Take a screenshot after 3 seconds
+bindsym $mod+Print exec "scrot -d 3 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'"
+# Take a full screenshot to clipboard(need xclip installed)
+bindsym control+Print exec "scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'"
 
 # IDEs start bindsym
 set $ides "[c]ode [i]dea c[l]ion [g]oland [d]atagrip"
