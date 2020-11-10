@@ -67,6 +67,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+# Backlight
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -116,34 +120,25 @@ bindsym $mod+c exec firefox-nightly
 bindsym $mod+shift+s exec flameshot gui
 bindsym $mod+shift+e exec emacs
 bindsym $mod+z exec zathura
+bindsym $mod+shift+w exec wps
 bindsym $mod+shift+n exec thunar
 bindsym $mod+shift+m exec netease-cloud-music
 bindsym $mod+shift+v exec VBoxManage startvm "WinDev2008Eval" --type gui
 bindsym $mod1+ctrl+Delete exec betterlockscreen -l
 
 # IDEs start bindsym
-set $ides "[c]ode [i]dea [p]ycharm c[l]ion [w]ebstorm [d]atagrip"
+set $ides "[c]ode [i]dea c[l]ion [g]oland [d]atagrip"
 bindsym $mod+i mode $ides
 mode $ides {
   bindsym c exec --no-startup-id "i3-msg 'workspace 2; exec code; mode \\"default\\"'"
   bindsym i exec --no-startup-id "i3-msg 'workspace 2; exec /home/mir/.local/bin/idea; mode \\"default\\"'"
+  bindsym g exec --no-startup-id "i3-msg 'workspace 2; exec /home/mir/.local/bin/goland; mode \\"default\\"'"
   bindsym p exec --no-startup-id "i3-msg 'workspace 2; exec /home/mir/.local/bin/pycharm; mode \\"default\\"'"
   bindsym l exec --no-startup-id "i3-msg 'workspace 2; exec /home/mir/.local/bin/clion; mode \\"default\\"'"
   bindsym w exec --no-startup-id "i3-msg 'workspace 2; exec /home/mir/.local/bin/webstorm; mode \\"default\\"'"
   bindsym d exec --no-startup-id "i3-msg 'workspace 2; exec /home/mir/.local/bin/datagrip; mode \\"default\\"'"
 
   bindsym Return mode "default"
-  bindsym Escape mode "default"
-}
-
-# Libreoffice bindsym
-set $office "[w]ritter e[x]cel"
-bindsym $mod+o mode $office
-mode $office {
-  bindsym w exec --no-startup-id exec libreoffice --writer; mode "default"
-  bindsym x exec --no-startup-id exec libreoffice --calc; mode "default"
-
-  bindsym Return mode "dafault"
   bindsym Escape mode "default"
 }
 
@@ -167,7 +162,6 @@ mode "$mode_redshift" {
 
 # kill focused window
 bindsym $mod+q kill
-bindsym $mod+x close
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec rofi -show drun
@@ -203,9 +197,10 @@ bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+semicolon split h
-bindsym $mod+shift+q split toggle
 # split in vertical orientation
 bindsym $mod+v split v
+# split orientation toggle
+bindsym $mod+shift+q split toggle
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle

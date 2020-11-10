@@ -27,6 +27,7 @@
 + 锁屏管理器：betterlockscreen, xautolock
 + pdf 阅读器：zathura
 + 文本编辑器：nvim, doom emacs(可选)
++ 屏幕亮度调剂器：light
 
 * 配置解读
 - Line12:

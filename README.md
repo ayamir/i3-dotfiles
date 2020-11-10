@@ -1,13 +1,13 @@
 
 # Table of Contents
 
-1.  [效果](#orgf9ab238)
-2.  [依赖](#orgc5ae14f)
-3.  [配置解读](#org10d7acc)
+1.  [效果](#orgd3b4c94)
+2.  [依赖](#orgc85d9ad)
+3.  [配置解读](#orgbce53b8)
 
 
 
-<a id="orgf9ab238"></a>
+<a id="orgd3b4c94"></a>
 
 # 效果
 
@@ -16,7 +16,7 @@
 ![img](Shot/2020-11-10_16-00-15_screenshot.png)
 
 
-<a id="orgc5ae14f"></a>
+<a id="orgc85d9ad"></a>
 
 # 依赖
 
@@ -36,9 +36,10 @@
 -   锁屏管理器：betterlockscreen, xautolock
 -   pdf 阅读器：zathura
 -   文本编辑器：nvim, doom emacs(可选)
+-   屏幕亮度调剂器：light
 
 
-<a id="org10d7acc"></a>
+<a id="orgbce53b8"></a>
 
 # 配置解读
 
@@ -65,7 +66,7 @@
 -   Line73-96:
     固定特定 WM_CLASS 的窗口出现的工作区
 -   Line98-108:
-    特定 WM_CLASS 的窗口出现时悬浮
+    特定 WM_CLASS的窗口出现时悬浮
 -   Line110-123:
     定义启动不同应用的快捷键
 -   Line125-139:
