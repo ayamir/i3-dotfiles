@@ -29,11 +29,11 @@ show_marks yes
 for_window [class=".*"] title_format "%title"
 
 # Theme colors
-client.focused     #4C566A      #5E81AC     #ECEFF4    #ECEFF4       #ECECEC
-client.focused_inactive   #4C566A     #4C566A    #171717     #ECECEC       #ECECEC
-client.unfocused   #4C566A      #4C566A    #171717     #ECECEC       #ECECEC
+client.focused     #ECEFF4      #5E81AC     #ECEFF4    #ECEFF4       #ECECEC
+client.focused_inactive   #ECECEC     #ECECEC    #171717     #ECECEC       #ECECEC
+client.unfocused   #ECECEC      #ECEFF4    #171717     #ECECEC       #ECECEC
 client.urgent           #BF616A            #BF616A        #ffffff        #268BD2
-client.placeholder      #4C566A            #909090        #FFFFFF        #268BD2
+client.placeholder      #ECEFF4            #909090        #FFFFFF        #268BD2
 
 new_window pixel 0
 new_float pixel 0
