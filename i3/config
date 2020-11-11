@@ -29,8 +29,8 @@ show_marks yes
 for_window [class=".*"] title_format "%title"
 
 # Theme colors
-client.focused     #4C566A      #5E81AC     #ECEFF4    #ECEFF4       #ECECEC
-client.focused_inactive   #4C566A     #4C566A    #171717     #ECECEC       #ECECEC
+client.focused     #4C566A      #5E81AC     #E5E9F0    #E5E9F0       #ECECEC
+client.focused_inactive   #4C556A     #4C566A    #2E3440     #ECECEC       #ECECEC
 client.unfocused   #4C566A      #4C566A    #171717     #ECECEC       #ECECEC
 client.urgent           #BF616A            #BF616A        #ffffff        #268BD2
 client.placeholder      #4C566A            #909090        #FFFFFF        #268BD2
@@ -120,6 +120,9 @@ bindsym $mod+shift+Return exec kitty
 # Switch theme
 bindsym $mod+control+l exec "$HOME/.local/bin/switch-i3 l"
 bindsym $mod+control+n exec "$HOME/.local/bin/switch-i3 n"
+
+# Polybar reload
+bindsym $mod1+p exec "$HOME/.config/i3/bin/i3bar"
 
 # start specific application
 bindsym $mod+c exec firefox-nightly
