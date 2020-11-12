@@ -1,14 +1,14 @@
 
 # Table of Contents
 
-1.  [效果](#org0d4299c)
-2.  [怎么用我的配置](#org437cb22)
-3.  [依赖](#org32aa197)
-4.  [配置解读](#org33bef2c)
+1.  [效果](#org7b39cbc)
+2.  [怎么用我的配置](#org706666b)
+3.  [依赖](#orgbe431b3)
+4.  [配置解读](#org3fb4ea4)
 
 
 
-<a id="org0d4299c"></a>
+<a id="org7b39cbc"></a>
 
 # 效果
 
@@ -17,7 +17,7 @@
 ![img](Shot/2020-11-10_16-00-15_screenshot.png)
 
 
-<a id="org437cb22"></a>
+<a id="org706666b"></a>
 
 # 怎么用我的配置
 
@@ -27,7 +27,7 @@
     cp -vr alacritty kitty i3 picom dunst rofi zathura ~/.config
 
 
-<a id="org32aa197"></a>
+<a id="orgbe431b3"></a>
 
 # 依赖
 
@@ -51,7 +51,7 @@
 -   屏幕亮度调节器：light
 
 
-<a id="org33bef2c"></a>
+<a id="org3fb4ea4"></a>
 
 # 配置解读
 
@@ -68,7 +68,7 @@
 -   i3 启动时自动启动的软件
 -   控制音频相关
 -   控制屏幕亮度相关
--   固定特定 WM_CLASS的窗口出现的工作区
+-   固定特定 WM_CLASS 的窗口出现的工作区
 -   特定 WM_CLASS的窗口出现时悬浮
     
     如果想要自己添加新的窗口，执行：
@@ -78,6 +78,7 @@
     之后鼠标点击你想要看的窗口就可以看到这个窗口的 WM_CLASS
 -   mod+return 打开 alacritty，mod+shift+return 打开 kitty
 -   使用脚本切换亮暗主题
+    有关亮暗主题的详细信息可以访问这个仓库：[Nord-and-Light](https://github.com/MiraculousMoon/nord-and-light)
 -   mod1(Alt)+p 重启 polybar
 -   定义启动不同应用的快捷键
 -   定义截图的不同方式
