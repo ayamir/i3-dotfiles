@@ -29,11 +29,11 @@ show_marks yes
 for_window [class=".*"] title_format "%title"
 
 # Theme colors
-client.focused     #4C566A      #5E81AC     #E5E9F0    #E5E9F0       #ECECEC
-client.focused_inactive   #4C556A     #4C566A    #2E3440     #ECECEC       #ECECEC
-client.unfocused   #4C566A      #4C566A    #171717     #ECECEC       #ECECEC
+client.focused     #ECEFF4      #5E81AC     #E5E9F0    #E5E9F0       #ECECEC
+client.focused_inactive   #4C556A     #ECEFF4    #2E3440     #ECECEC       #ECECEC
+client.unfocused   #ECEFF4      #ECEFF4    #171717     #ECECEC       #ECECEC
 client.urgent           #BF616A            #BF616A        #ffffff        #268BD2
-client.placeholder      #4C566A            #909090        #FFFFFF        #268BD2
+client.placeholder      #ECEFF4            #909090        #FFFFFF        #268BD2
 
 new_window pixel 0
 new_float pixel 0
@@ -56,8 +56,6 @@ exec --no-startup-id xdman
 exec --no-startup-id nutstore
 exec --no-startup-id copyq
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id redshift-gtk
-exec --no-startup-id words-picker
 exec --no-startup-id picom -b
 exec --no-startup-id /home/mir/.config/i3/bin/i3bar
 
@@ -79,7 +77,6 @@ floating_modifier $mod
 # assign
 assign [class="libreoffice"] $ws1
 
-assign [class="Code"] $ws2
 assign [class="jetbrains-toolbox"] $ws2
 assign [class="jetbrains-goland"] $ws2
 assign [class="jetbrains-idea"] $ws2
@@ -114,8 +111,8 @@ for_window [class="Steam"] floating enable
 for_window [class="words-picker"] floating enable
 
 # start a terminal
-bindsym $mod+Return exec alacritty
-bindsym $mod+shift+Return exec kitty
+bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+shift+Return exec --no-startup-id kitty
 
 # Switch theme
 bindsym $mod+control+l exec "$HOME/.local/bin/switch-i3 l"
@@ -125,23 +122,23 @@ bindsym $mod+control+n exec "$HOME/.local/bin/switch-i3 n"
 bindsym $mod1+p exec "$HOME/.config/i3/bin/i3bar"
 
 # start specific application
-bindsym $mod+c exec firefox-nightly
-bindsym $mod+shift+s exec flameshot gui
-bindsym $mod+shift+e exec emacs
-bindsym $mod+z exec zathura
-bindsym $mod+shift+w exec wps
-bindsym $mod+shift+n exec thunar
-bindsym $mod+shift+m exec netease-cloud-music
-bindsym $mod+shift+v exec VBoxManage startvm "WinDev2008Eval" --type gui
-bindsym $mod1+ctrl+Delete exec betterlockscreen -l
+bindsym $mod+c exec --no-startup-id firefox-nightly
+bindsym $mod+shift+s exec --no-startup-id flameshot gui
+bindsym $mod+shift+e exec --no-startup-id emacs
+bindsym $mod+z exec --no-startup-id zathura
+bindsym $mod+shift+w exec --no-startup-id wps
+bindsym $mod+shift+n exec --no-startup-id thunar
+bindsym $mod+shift+m exec --no-startup-id netease-cloud-music
+bindsym $mod+shift+v exec --no-startup-id VBoxManage startvm "WinDev2008Eval" --type gui
+bindsym $mod1+ctrl+Delete exec --no-startup-id betterlockscreen -l
 
 # Screenshot config
 # Take a full screenshot store in file
-bindsym Print exec "scrot 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'"
-# Take a screenshot after 3 seconds
-bindsym $mod+Print exec "scrot -d 3 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'"
+bindsym Print exec --no-startup-id "scrot 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'"
+# Take a screenshot after 5 seconds
+bindsym $mod+Print exec --no-startup-id "scrot -d 5 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'"
 # Take a full screenshot to clipboard(need xclip installed)
-bindsym control+Print exec "scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'"
+bindsym control+Print exec --no-startup-id "scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'"
 
 # IDEs start bindsym
 set $ides "[c]ode [i]dea c[l]ion [g]oland [d]atagrip"
@@ -250,6 +247,10 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 
+# Move to prev and next workspace
+bindsym $mod+bracketleft workspace prev
+bindsym $mod+bracketright workspace next
+
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -285,10 +286,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
