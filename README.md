@@ -1,13 +1,13 @@
 
 # Table of Contents
 
-1.  [效果](#org9ebef99)
-2.  [依赖](#orgb7a4574)
-3.  [配置解读](#org6a45386)
+1.  [效果](#org2dda6b6)
+2.  [依赖](#org630669b)
+3.  [配置解读](#orgd573c53)
 
 
 
-<a id="org9ebef99"></a>
+<a id="org2dda6b6"></a>
 
 # 效果
 
@@ -16,13 +16,14 @@
 ![img](Shot/2020-11-10_16-00-15_screenshot.png)
 
 
-<a id="orgb7a4574"></a>
+<a id="org630669b"></a>
 
 # 依赖
 
 -   终端：alacritty, kitty(可选)
 -   护眼：redshift-gtk
 -   程序启动器：rofi
+-   壁纸设置器：nitrogen, feh
 -   特效合成器：picom-ibhagwan-git
 -   文件管理器：thunar
 -   电源管理器：xfce4-power-manager
@@ -39,7 +40,7 @@
 -   屏幕亮度调节器：light
 
 
-<a id="org6a45386"></a>
+<a id="orgd573c53"></a>
 
 # 配置解读
 
@@ -56,7 +57,7 @@
 -   i3 启动时自动启动的软件
 -   控制音频相关
 -   控制屏幕亮度相关
--   固定特定 WM_CLASS的窗口出现的工作区
+-   固定特定 WM_CLASS 的窗口出现的工作区
 -   特定 WM_CLASS的窗口出现时悬浮
 -   定义启动不同应用的快捷键
 -   定义截图的不同方式
