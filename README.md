@@ -1,13 +1,14 @@
 
 # Table of Contents
 
-1.  [效果](#org2dda6b6)
-2.  [依赖](#org630669b)
-3.  [配置解读](#orgd573c53)
+1.  [效果](#org1b555a3)
+2.  [怎么用我的配置](#org1a7dcbe)
+3.  [依赖](#orgd56c1ac)
+4.  [配置解读](#org4245360)
 
 
 
-<a id="org2dda6b6"></a>
+<a id="org1b555a3"></a>
 
 # 效果
 
@@ -16,7 +17,16 @@
 ![img](Shot/2020-11-10_16-00-15_screenshot.png)
 
 
-<a id="org630669b"></a>
+<a id="org1a7dcbe"></a>
+
+# 怎么用我的配置
+
+1.  先把这个仓库克隆到本地
+2.  如果你之前有自己的配置记得先备份    
+3.  cp -vr alacritty dunst i3 kitty rofi zathura ~/.config
+
+
+<a id="orgd56c1ac"></a>
 
 # 依赖
 
@@ -40,7 +50,7 @@
 -   屏幕亮度调节器：light
 
 
-<a id="orgd573c53"></a>
+<a id="org4245360"></a>
 
 # 配置解读
 
@@ -57,7 +67,7 @@
 -   i3 启动时自动启动的软件
 -   控制音频相关
 -   控制屏幕亮度相关
--   固定特定 WM_CLASS 的窗口出现的工作区
+-   固定特定 WM_CLASS的窗口出现的工作区
 -   特定 WM_CLASS的窗口出现时悬浮
 -   定义启动不同应用的快捷键
 -   定义截图的不同方式
