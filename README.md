@@ -78,6 +78,7 @@
     之后鼠标点击你想要看的窗口就可以看到这个窗口的 WM_CLASS
 -   mod+return 打开 alacritty，mod+shift+return 打开 kitty
 -   使用脚本切换亮暗主题
+
     有关亮暗主题的详细信息可以访问这个仓库：[Nord-and-Light](https://github.com/MiraculousMoon/nord-and-light)
 -   mod1(Alt)+p 重启 polybar
 -   定义启动不同应用的快捷键
