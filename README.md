@@ -1,14 +1,14 @@
 
 # Table of Contents
 
-1.  [效果](#org1b555a3)
-2.  [怎么用我的配置](#org1a7dcbe)
-3.  [依赖](#orgd56c1ac)
-4.  [配置解读](#org4245360)
+1.  [效果](#orgdeaf887)
+2.  [怎么用我的配置](#orge0bcd93)
+3.  [依赖](#org085556c)
+4.  [配置解读](#org7803725)
 
 
 
-<a id="org1b555a3"></a>
+<a id="orgdeaf887"></a>
 
 # 效果
 
@@ -17,16 +17,17 @@
 ![img](Shot/2020-11-10_16-00-15_screenshot.png)
 
 
-<a id="org1a7dcbe"></a>
+<a id="orge0bcd93"></a>
 
 # 怎么用我的配置
 
 1.  先把这个仓库克隆到本地
-2.  如果你之前有自己的配置记得先备份    
-3.  cp -vr alacritty dunst i3 kitty rofi zathura ~/.config
+2.  如果你之前有自己的配置记得先备份
+    
+        cp -vr alacritty dunst i3 kitty rofi zathura ~/.config
 
 
-<a id="orgd56c1ac"></a>
+<a id="org085556c"></a>
 
 # 依赖
 
@@ -50,7 +51,7 @@
 -   屏幕亮度调节器：light
 
 
-<a id="org4245360"></a>
+<a id="org7803725"></a>
 
 # 配置解读
 
@@ -69,6 +70,15 @@
 -   控制屏幕亮度相关
 -   固定特定 WM_CLASS的窗口出现的工作区
 -   特定 WM_CLASS的窗口出现时悬浮
+    
+    如果想要自己添加新的窗口，执行：
+    
+        xprop | grep WM_CLASS
+    
+    之后鼠标点击你想要看的窗口就可以看到这个窗口的 WM<sub>CLASS</sub>
+-   mod+return 打开 alacritty，mod+shift+return 打开 kitty
+-   使用脚本切换亮暗主题
+-   mod1(Alt)+p 重启 polybar
 -   定义启动不同应用的快捷键
 -   定义截图的不同方式
 -   启动不同的 IDE 的模式
