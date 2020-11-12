@@ -1,14 +1,14 @@
 
 # Table of Contents
 
-1.  [效果](#orgdeaf887)
-2.  [怎么用我的配置](#orge0bcd93)
-3.  [依赖](#org085556c)
-4.  [配置解读](#org7803725)
+1.  [效果](#org0d4299c)
+2.  [怎么用我的配置](#org437cb22)
+3.  [依赖](#org32aa197)
+4.  [配置解读](#org33bef2c)
 
 
 
-<a id="orgdeaf887"></a>
+<a id="org0d4299c"></a>
 
 # 效果
 
@@ -17,17 +17,17 @@
 ![img](Shot/2020-11-10_16-00-15_screenshot.png)
 
 
-<a id="orge0bcd93"></a>
+<a id="org437cb22"></a>
 
 # 怎么用我的配置
 
 1.  先把这个仓库克隆到本地
 2.  如果你之前有自己的配置记得先备份
-    
-        cp -vr alacritty dunst i3 kitty rofi zathura ~/.config
+
+    cp -vr alacritty kitty i3 picom dunst rofi zathura ~/.config
 
 
-<a id="org085556c"></a>
+<a id="org32aa197"></a>
 
 # 依赖
 
@@ -51,7 +51,7 @@
 -   屏幕亮度调节器：light
 
 
-<a id="org7803725"></a>
+<a id="org33bef2c"></a>
 
 # 配置解读
 
@@ -75,7 +75,7 @@
     
         xprop | grep WM_CLASS
     
-    之后鼠标点击你想要看的窗口就可以看到这个窗口的 WM<sub>CLASS</sub>
+    之后鼠标点击你想要看的窗口就可以看到这个窗口的 WM_CLASS
 -   mod+return 打开 alacritty，mod+shift+return 打开 kitty
 -   使用脚本切换亮暗主题
 -   mod1(Alt)+p 重启 polybar

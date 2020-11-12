@@ -12,10 +12,9 @@
 * 怎么用我的配置
 1. 先把这个仓库克隆到本地
 2. 如果你之前有自己的配置记得先备份
-   #+BEGIN_SRC bash
-   cp -vr alacritty dunst i3 kitty rofi zathura ~/.config
-   #+END_SRC
-
+#+BEGIN_SRC bash
+cp -vr alacritty kitty i3 picom dunst rofi zathura ~/.config
+#+END_SRC
 * 依赖
 + 终端：alacritty, kitty(可选)
 + 护眼：redshift-gtk
