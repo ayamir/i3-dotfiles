@@ -177,6 +177,7 @@ mode "$mode_redshift" {
 
 # kill focused window
 bindsym $mod+q kill
+bindsym --release $mod1+q exec xkill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec rofi -show drun
