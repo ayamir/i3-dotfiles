@@ -60,9 +60,9 @@ font-4 = NotoSansCJK:size=12;2
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
-modules-left = i3 network
-modules-center =  date
-modules-right =  cpu memory volume backlight battery 
+modules-left = i3 cpu memory network  
+modules-center =  mpd 
+modules-right =  volume backlight battery date
 
 separator =
 spacing = 0
@@ -443,17 +443,17 @@ format-paused = <label-song> <toggle>
 format-offline = <label-offline>
 label-offline = "Offline"
 
-label-song =  "%title% | %artist%"
+label-song =  " %title%|%artist% "
 label-song-maxlen = 40
 label-song-ellipsis = true
 
-icon-play = 
+icon-play = " "
 icon-play-font = 2
 icon-play-foreground = ${color.GREEN}
-icon-pause = 
+icon-pause = " "
 icon-pause-font = 2
 icon-pause-foreground = ${color.YELLOW}
-icon-stop = 
+icon-stop = " "
 icon-stop-foreground = ${color.RED}
 icon-prev = 玲
 icon-prev-font = 2

@@ -29,11 +29,11 @@ show_marks yes
 for_window [class=".*"] title_format "%title"
 
 # Theme colors
-client.focused     #ECEFF4      #5E81AC     #E5E9F0    #E5E9F0       #ECECEC
-client.focused_inactive   #4C556A     #ECEFF4    #2E3440     #ECECEC       #ECECEC
-client.unfocused   #ECEFF4      #ECEFF4    #171717     #ECECEC       #ECECEC
+client.focused     #4C566A      #5E81AC     #E5E9F0    #E5E9F0       #ECECEC
+client.focused_inactive   #4C556A     #4C566A    #2E3440     #ECECEC       #ECECEC
+client.unfocused   #4C566A      #4C566A    #171717     #ECECEC       #ECECEC
 client.urgent           #BF616A            #BF616A        #ffffff        #268BD2
-client.placeholder      #ECEFF4            #909090        #FFFFFF        #268BD2
+client.placeholder      #4C566A            #909090        #FFFFFF        #268BD2
 
 new_window pixel 0
 new_float pixel 0
@@ -85,7 +85,9 @@ assign [class="jetbrains-clion"] $ws2
 assign [class="jetbrains-datagrip"] $ws2
 assign [class="jetbrains-webstorm"] $ws2
 
+assign [class="firefox"] $ws3
 assign [class="FirefoxNightly"] $ws3
+assign [class="Microsoft-edge-dev"] $ws3
 assign [class="Nightly"] $ws3
 
 assign [class="netease-cloud-music"] $ws4
@@ -121,7 +123,7 @@ bindsym $mod+control+n exec "$HOME/.local/bin/switch-i3 n"
 bindsym $mod1+p exec "$HOME/.config/i3/bin/i3bar"
 
 # start specific application
-bindsym $mod+c exec --no-startup-id firefox-nightly
+bindsym $mod+c exec --no-startup-id firefox
 bindsym $mod+shift+s exec --no-startup-id flameshot gui
 bindsym $mod+shift+e exec --no-startup-id emacs
 bindsym $mod+z exec --no-startup-id zathura
@@ -143,13 +145,13 @@ bindsym control+Print exec --no-startup-id "scrot '/tmp/%F_%T_$wx$h.png' -e 'xcl
 set $ides "[c]ode [i]dea c[l]ion [g]oland [d]atagrip"
 bindsym $mod+i mode $ides
 mode $ides {
-  bindsym c exec --no-startup-id "i3-msg 'workspace 2; exec code; mode \\"default\\"'"
-  bindsym i exec --no-startup-id "i3-msg 'workspace 2; exec $HOME/.local/bin/idea; mode \\"default\\"'"
-  bindsym g exec --no-startup-id "i3-msg 'workspace 2; exec $HOME/.local/bin/goland; mode \\"default\\"'"
-  bindsym p exec --no-startup-id "i3-msg 'workspace 2; exec $HOME/.local/bin/pycharm; mode \\"default\\"'"
-  bindsym l exec --no-startup-id "i3-msg 'workspace 2; exec $HOME/.local/bin/clion; mode \\"default\\"'"
-  bindsym w exec --no-startup-id "i3-msg 'workspace 2; exec $HOME/.local/bin/webstorm; mode \\"default\\"'"
-  bindsym d exec --no-startup-id "i3-msg 'workspace 2; exec $HOME/.local/bin/datagrip; mode \\"default\\"'"
+  bindsym c exec "i3-msg 'workspace 2; exec --no-startup-id code; mode \\"default\\"'"
+  bindsym i exec "i3-msg 'workspace 2; exec --no-startup-id $HOME/.local/bin/idea; mode \\"default\\"'"
+  bindsym g exec "i3-msg 'workspace 2; exec --no-startup-id $HOME/.local/bin/goland; mode \\"default\\"'"
+  bindsym p exec "i3-msg 'workspace 2; exec --no-startup-id $HOME/.local/bin/pycharm; mode \\"default\\"'"
+  bindsym l exec "i3-msg 'workspace 2; exec --no-startup-id $HOME/.local/bin/clion; mode \\"default\\"'"
+  bindsym w exec "i3-msg 'workspace 2; exec --no-startup-id $HOME/.local/bin/webstorm; mode \\"default\\"'"
+  bindsym d exec "i3-msg 'workspace 2; exec --no-startup-id $HOME/.local/bin/datagrip; mode \\"default\\"'"
 
   bindsym Return mode "default"
   bindsym Escape mode "default"
