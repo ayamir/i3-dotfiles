@@ -29,11 +29,11 @@ show_marks yes
 for_window [class=".*"] title_format "%title"
 
 # Theme colors
-client.focused     #4C566A      #5E81AC     #E5E9F0    #E5E9F0       #ECECEC
-client.focused_inactive   #4C556A     #4C566A    #2E3440     #ECECEC       #ECECEC
-client.unfocused   #4C566A      #4C566A    #171717     #ECECEC       #ECECEC
+client.focused     #ECEFF4      #5E81AC     #E5E9F0    #E5E9F0       #ECECEC
+client.focused_inactive   #4C556A     #ECEFF4    #2E3440     #ECECEC       #ECECEC
+client.unfocused   #ECEFF4      #ECEFF4    #171717     #ECECEC       #ECECEC
 client.urgent           #BF616A            #BF616A        #ffffff        #268BD2
-client.placeholder      #4C566A            #909090        #FFFFFF        #268BD2
+client.placeholder      #ECEFF4            #909090        #FFFFFF        #268BD2
 
 new_window pixel 0
 new_float pixel 0
@@ -55,7 +55,7 @@ exec --no-startup-id qv2ray
 exec --no-startup-id xdman
 exec --no-startup-id nutstore
 exec --no-startup-id copyq
-exec --no-startup-id nitrogen --restore
+exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id picom -b
 exec --no-startup-id $HOME/.config/i3/bin/i3bar
 
@@ -112,18 +112,24 @@ for_window [class="Steam"] floating enable
 for_window [class="words-picker"] floating enable
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id alacritty
-bindsym $mod+shift+Return exec --no-startup-id kitty
+bindsym $mod+Return exec --no-startup-id alacritty -e fish
+bindsym $mod+shift+Return exec --no-startup-id kitty -e fish
 
 # Switch theme
 bindsym $mod+control+l exec "$HOME/.local/bin/switch-i3 l"
 bindsym $mod+control+n exec "$HOME/.local/bin/switch-i3 n"
+
+# Control mpd
+bindsym $mod+control+p exec mpc toggle
+bindsym $mod+control+Right exec mpc next
+bindsym $mod+control+Left exec mpc prev
 
 # Polybar reload
 bindsym $mod1+p exec "$HOME/.config/i3/bin/i3bar"
 
 # start specific application
 bindsym $mod+c exec --no-startup-id firefox
+bindsym $mod1+c exec --no-startup-id code
 bindsym $mod+shift+s exec --no-startup-id flameshot gui
 bindsym $mod+shift+e exec --no-startup-id emacs
 bindsym $mod+z exec --no-startup-id zathura
@@ -142,14 +148,13 @@ bindsym $mod+Print exec --no-startup-id "scrot -d 5 'Screenshot_%Y-%m-%d-%S_$wx$
 bindsym control+Print exec --no-startup-id "scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'"
 
 # IDEs start bindsym
-set $ides "[c]ode [i]dea c[l]ion [g]oland [d]atagrip"
+set $ides "[i]dea [c]lion [g]oland [p]ycharm [d]atagrip"
 bindsym $mod+i mode $ides
 mode $ides {
-  bindsym c exec "i3-msg 'workspace 2; exec --no-startup-id code; mode \\"default\\"'"
   bindsym i exec "i3-msg 'workspace 2; exec --no-startup-id $HOME/.local/bin/idea; mode \\"default\\"'"
   bindsym g exec "i3-msg 'workspace 2; exec --no-startup-id $HOME/.local/bin/goland; mode \\"default\\"'"
   bindsym p exec "i3-msg 'workspace 2; exec --no-startup-id $HOME/.local/bin/pycharm; mode \\"default\\"'"
-  bindsym l exec "i3-msg 'workspace 2; exec --no-startup-id $HOME/.local/bin/clion; mode \\"default\\"'"
+  bindsym c exec "i3-msg 'workspace 2; exec --no-startup-id $HOME/.local/bin/clion; mode \\"default\\"'"
   bindsym w exec "i3-msg 'workspace 2; exec --no-startup-id $HOME/.local/bin/webstorm; mode \\"default\\"'"
   bindsym d exec "i3-msg 'workspace 2; exec --no-startup-id $HOME/.local/bin/datagrip; mode \\"default\\"'"
 
