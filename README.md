@@ -35,7 +35,7 @@
 -   护眼：redshift-gtk
 -   程序启动器：rofi
 -   壁纸设置器：nitrogen, feh
--   特效合成器：picom-ibhagwan-git
+-   特效合成器：picom-jonaburg-git
 -   文件管理器：thunar
 -   电源管理器：xfce4-power-manager
 -   截图工具：flameshot, scrot
